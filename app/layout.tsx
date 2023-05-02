@@ -4,6 +4,7 @@ import "./globals.css";
 
 // COMPONENTS
 import Navbar from "./components/navbar/Navbar";
+import ClientOnly from "./components/ClientOnly";
 
 export const metadata = {
   title: "GamerStay",
@@ -27,7 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <Navbar />
+        <ClientOnly>
+          <Navbar />
+        </ClientOnly>
         {children}
       </body>
     </html>
