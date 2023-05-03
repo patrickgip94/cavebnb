@@ -5,10 +5,10 @@ import "./globals.css";
 // COMPONENTS
 import Navbar from "./components/navbar/Navbar";
 import ClientOnly from "./components/ClientOnly";
-import Modal from "./components/modals/Modal";
+import RegisterModal from "./components/modals/RegisterModal";
 
 export const metadata = {
-  title: "GamerStay",
+  title: "cavebnb",
   description: "Airbnb clone for Gamers",
   icons: {
     other: {
@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <ClientOnly>
-          <Modal title="Hello" isOpen />
+          <RegisterModal />
           <Navbar />
         </ClientOnly>
         {children}
