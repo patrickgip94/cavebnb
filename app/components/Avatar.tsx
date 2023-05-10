@@ -1,10 +1,20 @@
 "use client";
 
-import { BsFillPersonFill } from "react-icons/bs";
+import Image from "next/image";
 
-const Avatar = () => {
+interface AvatarProps {
+  src: string | null | undefined;
+}
+
+const Avatar: React.FC<AvatarProps> = ({ src }) => {
   return (
-    <BsFillPersonFill className="rounded-full h-7 w-7 bg-gray-500/20 text-white" />
+    <Image
+      className="rounded-full"
+      height="30"
+      width="30"
+      alt="Avatar"
+      src={src || "https://i.imgur.com/XH80XWG.png"}
+    />
   );
 };
 
