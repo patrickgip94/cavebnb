@@ -35,7 +35,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 ![enter image description here](https://i.imgur.com/0aYTJgK.png)
-<h6>*Logo created by Patrick Gip*</h6>
+
 
 Cavebnb is a fantastic website designed exclusively for gamers seeking the perfect gaming house. Built using TypeScript and Next.js, with the added touch of React icons, Cavebnb offers a smooth and visually appealing user experience. With Next Auth integration, signing in with Google or GitHub is a breeze.
 
