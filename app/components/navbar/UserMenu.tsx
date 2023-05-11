@@ -1,13 +1,21 @@
 "use client";
 
+// UTILITIES
 import { useCallback, useState } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
-import Avatar from "../Avatar";
-import MenuItem from "./MenuItem";
-import useRegisterModal from "@/app/hooks/useRegisterModal";
-import useLoginModal from "@/app/hooks/useLoginModal";
 import { SafeUser } from "@/app/types";
 import { signOut } from "next-auth/react";
+
+// COMPONENTS
+import Avatar from "../Avatar";
+import MenuItem from "./MenuItem";
+
+// HOOKS
+import useLoginModal from "@/app/hooks/useLoginModal";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
+import useRentModal from "@/app/hooks/useRentModal";
+
+// ICONS
+import { AiOutlineMenu } from "react-icons/ai";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
@@ -16,17 +24,26 @@ interface UserMenuProps {
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+  const rentModal = useRentModal();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
   }, []);
 
+  const onRent = useCallback(() => {
+    if (!currentUser) {
+      return loginModal.onOpen();
+    }
+
+    // Open Rent Modal
+  }, [currentUser, loginModal]);
+
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
         <div
-          onClick={() => {}}
+          onClick={onRent}
           className="hidden md:block text-sm font-semi py-3 px-4 rounded-full 
           hover:bg-neutral-100 transition cursor-pointer"
         >
