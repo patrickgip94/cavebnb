@@ -37,7 +37,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
     }
 
     // Open Rent Modal
-  }, [currentUser, loginModal]);
+    rentModal.onOpen();
+  }, [currentUser, loginModal, rentModal]);
 
   return (
     <div className="relative">
@@ -74,7 +75,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 <MenuItem onClick={() => {}} label="My favorites" />
                 <MenuItem onClick={() => {}} label="My reservations" />
                 <MenuItem onClick={() => {}} label="My properties" />
-                <MenuItem onClick={() => {}} label="Cavebnb my home" />
+                <MenuItem onClick={rentModal.onOpen} label="Cavebnb my home" />
                 <MenuItem onClick={() => signOut()} label="Logout" />
               </>
             ) : (
